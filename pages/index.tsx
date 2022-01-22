@@ -34,7 +34,7 @@ const Home: NextPage<Props> = (props) => {
           {blogs.map((blog) => {
             return (
               <li key={blog.id}>
-                <Link href={`blob/${blog.id}`}>
+                <Link href={`blog/${blog.id}`}>
                   <a>{blog.title}</a>
                 </Link>
               </li>
