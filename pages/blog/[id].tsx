@@ -1,5 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import { cmsClient } from "../../lib/api/cms-client";
+import styles from "../../styles/Home.module.css";
 
 type Blog = {
   id: string;
@@ -14,10 +15,15 @@ type Props = {
 const BlogId: NextPage<Props> = (props) => {
   const { blog } = props;
   return (
-    <div>
-      <span>{blog.title}</span>
-      <span>{blog.body}</span>
-    </div>
+    <main className={styles.main}>
+      <h1 className={styles.title}>{blog.title}</h1>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `${blog.body}`,
+        }}
+        className={styles.post}
+      />
+    </main>
   );
 };
 
